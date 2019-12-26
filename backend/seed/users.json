@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "email": "person1@example.com",
+    "password": "$2a$12$sRfWraTPh6ic4sPGdgpaC.GkMNBbwzEZTwl58O1vm8I7x7MHsC7UW",
+    "verified": true,
+    "hash": "JdKXx9zbPEgAGIIeIwvh"
+  },
+  {
+    "id": "2",
+    "email": "person2@example.com",
+    "password": "$2a$12$05K.qo6svNahQyLYsoiocO2en5tPBtoPZgBlTZm5ozPPoJ1RjPNc2",
+    "verified": true,
+    "hash": "1xSC2xG1lHg4IfLFs2YI"
+  },
+  {
+    "id": "3",
+    "email": "person3@example.com",
+    "password": "$2a$12$cadQMoTcatM4tmSz3skTQu1o9z5cK38oHwqSlRBnjngVNvbdD4nFe",
+    "verified": true,
+    "hash": "1lvRn9PbREhV8w2BcdWk"
+  }
+]

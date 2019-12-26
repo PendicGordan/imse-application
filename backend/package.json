@@ -1,0 +1,40 @@
+{
+  "name": "reservation-management-system",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js",
+    "seed": "node seed"
+  },
+  "dependencies": {
+    "await-to-js": "^2.0.1",
+    "bcrypt": "^3.0.2",
+    "bcrypt-promise": "^2.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "csv": "^5.3.1",
+    "csv-stringify": "^5.3.5",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "mailgun-js": "^0.22.0",
+    "moment": "^2.24.0",
+    "morgan": "~1.9.0",
+    "mysql2": "^1.5.3",
+    "mysqldump": "^2.2.1",
+    "nodemailer": "^4.6.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "npm": "^6.4.1",
+    "parse-error": "^0.2.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "randomstring": "^1.1.5",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^3.2.0",
+    "serve-favicon": "~2.4.5",
+    "utils": "^0.3.1",
+    "uuid": "^3.3.3",
+    "validator": "^10.8.0"
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "83fc1836-456c-5eb3-48d5-0232016d24fe",
+    "name"        : "Restaurant1",
+    "website"     : "www.restaurant1.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "83fc1836-456c-5eb3-48d5-0d32016d24f4",
+    "name"        : "Hotel1",
+    "website"     : "www.hotel1.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "83fc1836-456c-ddb3-48d5-0232016d24f5",
+    "name"        : "Hotel2",
+    "website"     : "www.hotel2.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "83fc1836-4d6c-5eb3-48d5-0232016d24fa",
+    "name"        : "Restaurant2",
+    "website"     : "www.restaurant2.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "83fc183d-456c-5eb3-48d5-0232016d24fe",
+    "name"        : "Restaurant3",
+    "website"     : "www.restaurant3.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "83fcd836-456c-5cb3-48d5-02c2016d24f4",
+    "name"        : "Hotel3",
+    "website"     : "www.hotel3.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "83dc1836-456c-5eb1-48d5-0232016d24f5",
+    "name"        : "Hotel4",
+    "website"     : "www.hotel4.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "f3fc1836-456c-5eb3-48d5-0232016d24fa",
+    "name"        : "Restaurant4",
+    "website"     : "www.restaurant4.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "e3fc1836-456c-5eb3-48d5-0232017d24fe",
+    "name"        : "Restaurant5",
+    "website"     : "www.restaurant5.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "d3fc1836-456c-5eb3-48d5-0232216d24f4",
+    "name"        : "Hotel5",
+    "website"     : "www.hotel5.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "c3fc1836-416c-5eb3-48d5-0232016d24f5",
+    "name"        : "Hotel6",
+    "website"     : "www.hotel6.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "b3fc1836-406c-5eb3-48d5-0232016d24fa",
+    "name"        : "Restaurant6",
+    "website"     : "www.restaurant6.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "a3fc1836-456c-5eb3-48d5-3232016d24fe",
+    "name"        : "Restaurant7",
+    "website"     : "www.restaurant7.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "73fc1836-456c-5eb1-48d5-0232016d24f4",
+    "name"        : "Hotel7",
+    "website"     : "www.hotel7.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "63fc1836-456c-5eb3-48d5-b232016d24f5",
+    "name"        : "Hotel8",
+    "website"     : "www.hotel8.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "53fc5836-456c-5eb3-48d5-0232016d24fa",
+    "name"        : "Restaurant8",
+    "website"     : "www.restaurant8.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "43fc1836-456c-5eb3-48d5-0232016d27fe",
+    "name"        : "Restaurant9",
+    "website"     : "www.restaurant9.com",
+    "type"        : "RESTAURANT"
+  },
+  {
+    "id": "33fc1836-456c-5eb3-48d5-0332016d24f4",
+    "name"        : "Hotel10",
+    "website"     : "www.hotel10.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "23fc1836-456c-5eb3-48d5-0232016d24e5",
+    "name"        : "Hotel11",
+    "website"     : "www.hotel11.com",
+    "type"        : "HOTEL"
+  },
+  {
+    "id": "13fc1836-456c-5eb3-48d5-0232016d2ffa",
+    "name"        : "Restaurant11",
+    "website"     : "www.restaurant11.com",
+    "type"        : "RESTAURANT"
+  }
+]

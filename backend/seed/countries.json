@@ -1,0 +1,27 @@
+[
+  {
+    "id": "4062d94a-1f51-11ea-a5e8-2e728ce88125",
+    "name": "Austria",
+    "shortcut": "AU"
+  },
+  {
+    "id": "4062dc4c-1f51-11ea-a5e8-2e728ce88125",
+    "name": "Germany",
+    "shortcut": "DE"
+  },
+  {
+    "id": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "name": "Serbia",
+    "shortcut": "SE"
+  },
+  {
+    "id": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "name": "Bosnia&Herzegovina",
+    "shortcut": "BiH"
+  },
+  {
+    "id": "4062e278-1f51-11ea-a5e8-2e728ce88125",
+    "name": "Italy",
+    "shortcut": "IT"
+  }
+]
