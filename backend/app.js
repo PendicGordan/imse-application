@@ -41,16 +41,6 @@ app.use(function (req, res, next) {
 });
 app.use('/v1', v1);
 
-app.use('/', function(req, res){
-    res.statusCode = 200;//send the appropriate status code
-    res.json({status:"success", message:"Parcel Pending API", data:{}})
-});
-
-app.use('/test', function(req, res){
-    res.statusCode = 200;//send the appropriate status code
-    res.json({status:"success", message:"Test route", data:{}})
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     let err = new Error('Not Found');
