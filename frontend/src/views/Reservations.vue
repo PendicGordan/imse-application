@@ -256,7 +256,8 @@
         methods: {
             async filter() {
                 let datesNotNull = this.endDateFilter != null && this.startDateFilter != null;
-                if(datesNotNull && this.endDateFilter < this.startDateFilter) return console.error('wrong time range');
+                if(datesNotNull && this.endDateFilter < this.startDateFilter) return this.$swal('Wrong data range!','',
+                    'error');
 
                 let startDateFilter;
                 let endDateFilter;
