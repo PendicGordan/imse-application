@@ -34,7 +34,8 @@
         },
         methods: {
             async updatePassword() {
-                if(this.password !== this.repeatedPassword) return console.error('wrong');
+                if(this.password !== this.repeatedPassword)
+                    return this.$swal(`Passwords don't match!`,'', 'error');
 
                 let [err, response] = await to(AuthService.changePassword({ password: this.password, confirmPassword: this.repeatedPassword }));
                 if (err) return console.error(err);
@@ -45,6 +46,7 @@
 
                 this.password = '';
                 this.repeatedPassword = '';
+                this.$swal(`You successfully changed the password!`,'', 'success');
             }
         },
         async mounted() {
