@@ -28,5 +28,5 @@ is accessible on localhost:8080/ and backend on localhost:8080/api, like defined
 is disabled. Backend runs in separate container and therefore has its own Dockerfile.  Therefore it must be connected to the same network as frontend/nginx, 
 which is defined in docker-compose.yml. It's also exposing the port 3000, which is the port on which backend application is running. Frontend code is not running as application on specific port, but it's built during docker compose phase and this built bundle is put into the /usr/share/nginx/html folder on nginx container.
 
-Pendic Gordan
-01607955
+Pendic Gordan, 01607955
+Micic Dejan, 01549172
