@@ -7,6 +7,9 @@ const basename  = path.basename(__filename);
 const db        = {};
 require('dotenv').config(); // instantiate environment variables
 
+console.log(process.env.DATABASE_USER);
+console.log(process.env.DATABASE_PASSWORD);
+
 const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USER, process.env.DATABASE_PASSWORD, {
   host: process.env.DATABASE_HOST ,
   dialect: process.env.DATABASE_DIALECT,

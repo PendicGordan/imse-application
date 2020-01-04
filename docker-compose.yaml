@@ -22,10 +22,13 @@ services:
       # set context for build command explicitly
       context: ./backend
     image: imse-backend
+    depends_on:
+      - mysql
     networks:
       applicationnet:
   mysql:
     image: mysql:5
+    container_name: mysql
     restart: always
     environment:
       MYSQL_DATABASE: 'reservation_management_system'
@@ -34,6 +37,8 @@ services:
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
       - '3306:3306'
+    expose:
+      - '3306'
     networks:
       applicationnet:
   mongo:
