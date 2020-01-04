@@ -15,5 +15,345 @@
     "CompanyId": "a3fc1836-456c-5eb3-48d5-3232016d24fe",
     "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
     "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "4062d94a-1f51-11ea-a5e8-2e728ce98125",
+    "date_from": "2019/12/20, 11:04:36",
+    "date_to": "2019/12/23, 11:04:36",
+    "CompanyId": "83fcd836-456c-5cb3-48d5-02c2016d24f4",
+    "CountryId": "4062dc4c-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "4065d94a-1f51-11ea-a5e8-2e728ce88125",
+    "date_from": "2020/01/20, 16:04:36",
+    "date_to": "2020/01/20, 19:04:36",
+    "CompanyId": "83fc1836-456c-5eb3-48d5-0232016d24fe",
+    "CountryId": "4062dc4c-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-12ea-a5e8-2a728ce88125"
+  },
+  
+  
+  
+  
+  
+  {
+    "id": "53abc5ab-8a53-4e0e-b35b-e54901a8fe20",
+    "date_from": "2020/01/17, 18:04:36",
+    "date_to": "2020/01/20, 20:04:36",
+    "CompanyId": "83fc183d-456c-5eb3-48d5-0232016d24fe",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5052d94a-1f51-11ea-a5e8-2a728ce88125"
+
+  },
+  {
+    "id": "d0c437d9-9a18-4cbc-9dbd-846f51ed64f2",
+    "date_from": "2019/12/19, 11:04:36",
+    "date_to": "2020/01/27, 23:04:36",
+    "CompanyId": "83fcd836-456c-5cb3-48d5-02c2016d24f4",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a7285e88125"
+  },
+  {
+    "id": "139b9805-dd4d-412b-8902-1997d5d87030",
+    "date_from": "2019/10/20, 11:04:36",
+    "date_to": "2019/10/23, 11:04:36",
+    "CompanyId": "83dc1836-456c-5eb1-48d5-0232016d24f5",
+    "CountryId": "4062e278-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-5f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "d073be68-edb5-490a-8049-9223a683a42f",
+    "date_from": "2020/03/20, 16:04:36",
+    "date_to": "2020/03/24, 11:04:36",
+    "CompanyId": "c3fc1836-416c-5eb3-48d5-0232016d24f5",
+    "CountryId": "4062dc4c-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5562d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  
+  
+  
+  
+  
+  
+  {
+    "id": "f95923cc-d747-4871-9063-3819a8eec46e",
+    "date_from": "2019/12/11, 18:04:36",
+    "date_to": "2019/12/22, 20:04:36",
+    "CompanyId": "63fc1836-456c-5eb3-48d5-b232016d24f5",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5052d94a-1f51-11ea-a5e8-2a728ce88125"
+
+  },
+  {
+    "id": "2a49e10d-39fb-416c-afec-861f4e9e706f",
+    "date_from": "2020/06/18, 19:04:36",
+    "date_to": "2020/06/25, 22:04:36",
+    "CompanyId": "b3fc1836-406c-5eb3-48d5-0232016d24fa",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "d76241e5-5940-4ce8-83cf-11249e520660",
+    "date_from": "2020/01/07, 11:04:36",
+    "date_to": "2020/01/30, 11:04:36",
+    "CompanyId": "53fc5836-456c-5eb3-48d5-0232016d24fa",
+    "CountryId": "4062d94a-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-5f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "24f9d7ba-e52f-459e-a6a7-dbc43d87b9e1",
+    "date_from": "2020/01/23, 16:04:36",
+    "date_to": "2020/01/25, 19:04:36",
+    "CompanyId": "43fc1836-456c-5eb3-48d5-0232016d27fe",
+    "CountryId": "4062dc4c-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5562d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  
+  
+  
+  
+  
+  {
+    "id": "92a89d7a-ed5d-49ed-85f8-42e2e41ac61b",
+    "date_from": "2020/09/11, 18:04:36",
+    "date_to": "2020/09/16, 20:04:36",
+    "CompanyId": "23fc1836-456c-5eb3-48d5-0232016d24e5",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce85125"
+
+  },
+  {
+    "id": "fac0d94e-7f24-4548-bc8f-de2da7fe04f8",
+    "date_from": "2020/01/18, 19:04:36",
+    "date_to": "2020/02/03, 22:04:36",
+    "CompanyId": "13fc1836-456c-5eb3-48d5-0232016d2ffa",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce85125"
+  },
+  {
+    "id": "fac0d94e-7f24-4548-bc8f-de2da7fe04f8",
+    "date_from": "2020/01/05, 11:04:36",
+    "date_to": "2020/01/07, 11:04:36",
+    "CompanyId": "13fc1836-456c-5eb3-48d5-0232016d2ffa",
+    "CountryId": "4062d94a-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-5f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "fac0d94e-7f24-4548-bc8f-de2da7fe04f8",
+    "date_from": "2020/03/23, 16:04:36",
+    "date_to": "2020/04/04, 19:04:36",
+    "CompanyId": "23fc1836-456c-5eb3-48d5-0232016d24e5",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5262d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  
+  
+  
+  
+  
+  
+  
+  {
+    "id": "73286f39-a543-460d-82a1-855238344ebb",
+    "date_from": "2020/08/11, 18:04:36",
+    "date_to": "2020/08/12, 20:34:36",
+    "CompanyId": "43fc1836-456c-5eb3-48d5-0232016d27fe",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce85125"
+
+  },
+  {
+    "id": "c5f64b49-d032-4b56-804e-11d45f94ce8f",
+    "date_from": "2020/01/17, 19:04:36",
+    "date_to": "2020/01/19, 23:04:36",
+    "CompanyId": "63fc1836-456c-5eb3-48d5-b232016d24f5",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88555"
+  },
+  {
+    "id": "51bd980e-6a23-4135-be15-936890203959",
+    "date_from": "2020/11/05, 11:04:36",
+    "date_to": "2020/11/07, 15:04:36",
+    "CompanyId": "43fc1836-456c-5eb3-48d5-0232016d27fe",
+    "CountryId": "4062d94a-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce85125"
+  },
+  {
+    "id": "16f1ac07-a4c9-44db-9072-0f97ed0812e7",
+    "date_from": "2020/02/01, 17:04:36",
+    "date_to": "2020/02/03, 19:04:36",
+    "CompanyId": "63fc1836-456c-5eb3-48d5-b232016d24f5",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88555"
+  },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {
+    "id": "3fd8acab-c0c1-4cb7-a2d4-ad67ebf3cea0",
+    "date_from": "2020/07/05, 18:04:36",
+    "date_to": "2020/07/06, 20:34:36",
+    "CompanyId": "a3fc1836-456c-5eb3-48d5-3232016d24fe",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-5551-11ea-a5e8-2a728ce88125"
+
+  },
+  {
+    "id": "c2ad860a-2f5a-47ae-b7fa-ae3abb118e17",
+    "date_from": "2020/01/25, 20:04:36",
+    "date_to": "2020/01/28, 23:04:36",
+    "CompanyId": "53fc5836-456c-5eb3-48d5-0232016d24fa",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce85125"
+  },
+  {
+    "id": "b96a5ff9-fe94-412d-a2de-c1d046e75416",
+    "date_from": "2020/11/07, 17:04:36",
+    "date_to": "2020/11/07, 18:04:36",
+    "CompanyId": "33fc1836-456c-5eb3-48d5-0332016d24f4",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5052d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "2e56c1bb-4f8e-4c92-9ed6-919930accf01",
+    "date_from": "2020/01/02, 18:34:36",
+    "date_to": "2020/01/02, 22:04:36",
+    "CompanyId": "23fc1836-456c-5eb3-48d5-0232016d24e5",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5162d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  
+  
+  
+  
+  
+  
+  {
+    "id": "af5d88c8-a68e-449b-bb38-d4467cfe80f8",
+    "date_from": "2019/02/02, 18:04:36",
+    "date_to": "2019/01/02, 20:34:36",
+    "CompanyId": "e3fc1836-456c-5eb3-48d5-0232017d24fe",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88125"
+
+  },
+  {
+    "id": "af5d88c8-a68e-449b-bb38-d4467cfe80f8",
+    "date_from": "2020/03/27, 20:04:36",
+    "date_to": "2020/03/29, 23:04:36",
+    "CompanyId": "c3fc1836-416c-5eb3-48d5-0232016d24f5",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-25728ce88125"
+  },
+  {
+    "id": "af5d88c8-a68e-449b-bb38-d4467cfe80f8",
+    "date_from": "2020/04/05, 17:04:36",
+    "date_to": "2020/04/08, 18:04:36",
+    "CompanyId": "a3fc1836-456c-5eb3-48d5-3232016d24fe",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-22ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "af5d88c8-a68e-449b-bb38-d4467cfe80f8",
+    "date_from": "2020/01/25, 18:34:36",
+    "date_to": "2020/01/27, 23:04:36",
+    "CompanyId": "63fc1836-456c-5eb3-48d5-b232016d24f5",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728c988125"
+  },
+  
+  
+  
+  
+  
+  {
+    "id": "740b5af0-2763-4126-8a68-df660254138c",
+    "date_from": "2019/02/05, 18:04:36",
+    "date_to": "2019/01/07, 20:34:36",
+    "CompanyId": "83dc1836-456c-5eb1-48d5-0232016d24f5",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5052d94a-1f51-11ea-a5e8-2a728ce88125"
+
+  },
+  {
+    "id": "025e4662-f228-4d5f-a5e8-f4e199a63302",
+    "date_from": "2020/06/27, 20:04:36",
+    "date_to": "2020/06/28, 23:04:36",
+    "CompanyId": "83fc1836-456c-5eb3-48d5-0232016d24fe",
+    "CountryId": "4062e278-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "3c41a92d-ccab-4575-9300-c9313733e091",
+    "date_from": "2019/04/05, 17:04:36",
+    "date_to": "2019/04/08, 18:04:36",
+    "CompanyId": "83fc1836-456c-5eb3-48d5-0232016d24fe",
+    "CountryId": "4062e0fc-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  {
+    "id": "75d47fa2-fabe-4d77-8ddd-eb13f38facf3",
+    "date_from": "2019/12/31, 18:34:36",
+    "date_to": "2020/01/29, 23:04:36",
+    "CompanyId": "83dc1836-456c-5eb1-48d5-0232016d24f5",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5052d94a-1f51-11ea-a5e8-2a728ce88125"
+  },
+  
+  
+  
+  
+  
+  
+  
+  {
+    "id": "3d124ea8-8e3c-4083-8b75-5a606c9164fc",
+    "date_from": "2019/02/05, 18:04:36",
+    "date_to": "2019/01/07, 20:34:36",
+    "CompanyId": "83fcd836-456c-5cb3-48d5-02c2016d24f4",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5052d94a-1f51-11ea-a5e8-2a728ce88125"
+
+  },
+  {
+    "id": "b901a6e9-db63-4717-a81d-11790caa55c3",
+    "date_from": "2020/06/27, 20:04:36",
+    "date_to": "2020/06/28, 23:04:36",
+    "CompanyId": "f3fc1836-456c-5eb3-48d5-0232016d24fa",
+    "CountryId": "4062e278-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062da4a-1f51-11ca-a5e8-2a728be88125"
+  },
+  {
+    "id": "b27d3713-b7b6-4030-9c68-884071c291e6",
+    "date_from": "2019/04/05, 17:04:36",
+    "date_to": "2019/04/08, 18:04:36",
+    "CompanyId": "c3fc1836-416c-5eb3-48d5-0232016d24f5",
+    "CountryId": "4062dc4c-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1f51-11ea-a5e8-2a728c988125"
+  },
+  {
+    "id": "b7b0782a-48cf-43c7-adf4-bb640363f040",
+    "date_from": "2019/12/31, 18:34:36",
+    "date_to": "2020/01/29, 23:04:36",
+    "CompanyId": "73fc1836-456c-5eb1-48d5-0232016d24f4",
+    "CountryId": "4062ddc8-1f51-11ea-a5e8-2e728ce88125",
+    "EmployeeId": "5062d94a-1d51-11ea-a5e8-2a728ce88125"
   }
+  
+  
+  
+  
+  
+  
+  
+  
+ 
 ]
