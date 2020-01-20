@@ -6,6 +6,8 @@ const passport      = require('passport');
 const pe            = require('parse-error');
 const cors          = require('cors');
 
+const mongoose = require('mongoose');
+
 const app = express();
 
 const v1 = require('./routes/v1')(express, passport);
@@ -28,11 +30,67 @@ models.sequelize.authenticate()
     });
 
 if(CONFIG.app === 'dev'){
-    models.sequelize.sync({ force: true }).then(async () => {
+    /*models.sequelize.sync({ force: true }).then(async () => {
         await require('./seed').seed();
         console.log("Seed done!");
-    });
+    });*/
 }
+
+mongoose.connect('mongodb://localhost:27017/reservation_management_system', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then((db) => {
+    console.log('Connected to the MongoDB!');
+    let Company = require('./models_mongodb/Company');
+    let company = new Company({
+        _id: new mongoose.Types.ObjectId(),
+        name: 'gordan',
+        website: 'gp',
+        type: 'HOTEL'
+    });
+    company.save();
+
+    let Country = require('./models_mongodb/Country');
+    let country = new Country({
+        _id: new mongoose.Types.ObjectId(),
+        name: 'Serbia',
+        shortcut: 'SE',
+
+    });
+    country.save();
+
+    let Employee = require('./models_mongodb/Employee');
+    let employee = new Employee({
+        _id: new mongoose.Types.ObjectId(),
+        username: 'gordan123',
+        first_name: 'Gordan',
+        last_name: 'Pendic',
+        reservations: []
+    });
+    employee.save();
+
+    let Reservation = require('./models_mongodb/Reservation');
+    let reservation = new Reservation({
+        _id: new mongoose.Types.ObjectId(),
+        date_from: '2020/06/27, 20:04:36',
+        date_to: '2020/06/28, 23:04:36',
+        company: company,
+        employee: employee,
+        country: country
+    });
+    reservation.save();
+
+    let User = require('./models_mongodb/User');
+    let user = new User({
+        _id: new mongoose.Types.ObjectId(),
+        email: 'gordan@example.com',
+        password: '$2a$12$sRfWraTPh6ic4sPGdgpaC.GkMNBbwzEZTwl58O1vm8I7x7MHsC7UW',
+        verified: true,
+        hash: 'JdKXx9zbPEgAGIIeIwvh'
+    });
+    user.save();
+});
+
 app.use(cors());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")

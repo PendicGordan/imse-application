@@ -1,4 +1,5 @@
 const path         = require('path');
+const {ReE, ReS, to }       = require('../../services/UtilService');
 
 module.exports = (express, passport) => {
     const router = express.Router();
@@ -22,6 +23,12 @@ module.exports = (express, passport) => {
     // ----------- Reservations Routes  -----------
     const companies = require('./companyRoutes')(router, passport);
     router.use('/companies', companies);
+
+    router.use('/migrate', async (req, res) => {
+        let migrationSuccess = await require('./../../migration')(req, res);
+        if(!migrationSuccess) return ReE(res, { message: 'Migration error!' }, 500);
+        return ReS(res, { message: 'Migration success!' });
+    });
 
     return router;
 };
