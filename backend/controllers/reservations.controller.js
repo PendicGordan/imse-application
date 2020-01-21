@@ -4,11 +4,22 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const moment = require('moment');
 const stringify = require('csv-stringify');
+const mongoose = require('mongoose');
+const Reservation = require('../models_mongodb/Reservation');
+const jwt           	= require('jsonwebtoken');
 
 const insertReservation = async function(req, res){
     let body = req.body;
-    let [err, reservation] = await to(Reservations.create({ date_from: body.startDate, date_to: body.endDate, CompanyId: body.companyId, CountryId: body.countryId, EmployeeId: body.employeeId }));
+    let reservationId = new mongoose.Types.ObjectId();
+    let [err, reservation] = await to(new Reservation({ _id: reservationId, date_from: body.startDate, date_to: body.endDate, company: body.company, country: body.country, employee: body.employee }).save());
+    //let [err, reservation] = await to(Reservations.create({ date_from: body.startDate, date_to: body.endDate, CompanyId: body.companyId, CountryId: body.countryId, EmployeeId: body.employeeId }));
     if(err) return ReE(res, err);
+
+    [err, reservation] = await to(mongoose.models.Employee.update({ _id: body.employee._id },{ $push: { reservations: { $each: [reservationId] } } }));
+    if(err) return ReE(res, err);
+
+
+    console.log(reservation);
     return ReS(res, { body: reservation });
 };
 module.exports.insertReservation = insertReservation;
@@ -17,7 +28,7 @@ const retrieveReservations = async function(req, res) {
     console.log(req.query);
     console.log(req.body);
 
-    let [err, reservations] = await to(Reservations.findAll({include: [Employees, Companies, Countries]}));
+    let [err, reservations] = await to(mongoose.models.Reservation.find());
     if(err) return ReE(res, err);
 
     return ReS(res, { body: reservations });
@@ -27,23 +38,21 @@ module.exports.retrieveReservations = retrieveReservations;
 const sortBy = async function(req, res){
     let sortBy = req.params.sortBy;
     let direction = req.params.direction;
-    let sortArray = [];
+    let sortObject = {};
+    let sortingKey;
     switch(sortBy) {
         case 'username':case 'first_name':case 'last_name':
-            sortArray.push(Employees);
+            sortingKey = 'employee.' + sortBy;
             break;
         case 'name':
-            sortArray.push(Companies);
+            sortingKey = 'company.' + sortBy;
             break;
-        case 'start_date':case 'end_date':
-            sortArray.push(Reservations);
+        case 'date_from':case 'date_to':
+            sortingKey = sortBy;
             break;
     }
-    sortArray.push(req.params.sortBy);
-    sortArray.push(direction === 'ascending' ? 'ASC' : 'DESC');
-    let [err, reservations] = await to(Reservations.findAll({include: [Employees, Companies, Countries], order: [
-            sortArray
-        ]}));
+    sortObject[sortingKey] = direction === 'ascending' ? 1 : -1;
+    let [err, reservations] = await to(mongoose.models.Reservation.find().sort(sortObject));
     if(err) return ReE(res, err);
 
     return ReS(res, { body: reservations });
@@ -54,43 +63,47 @@ const filter = async function(req, res){
     console.log(req.body);
     let body = req.body;
 
-    let searchObjectEmployee = {};
+    let searchObject = {};
     if(body.username !== '') {
         console.log('username');
-        searchObjectEmployee["username"] = { [Op.like]: '%' + body.username + '%'};
+        searchObject["employee.username"] = { $regex: '.*' + body.username + '.*' };
     }
     if(body.firstName !== '') {
         console.log('first_name');
-        searchObjectEmployee["first_name"] = { [Op.like]: '%' + body.firstName + '%'};
+        searchObject["employee.first_name"] = { $regex: '.*' + body.firstName + '.*' };
     }
     if(body.lastName !== '') {
         console.log('last_name');
-        searchObjectEmployee["last_name"] = { [Op.like]: '%' + body.lastName + '%'};
+        searchObject["employee.last_name"] = { $regex: '.*' + body.lastName + '.*' };
     }
 
-    let searchObjectCompany = {};
     if(body.company !== '') {
         console.log('company');
-        searchObjectCompany["name"] = { [Op.like]: '%' + body.company + '%'};
+        searchObject["company.name"] = { $regex: '.*' + body.company + '.*' };
     }
 
-    let betweenDates = {};
     if(body.startDate && body.endDate) {
-        betweenDates["date_from"] = {
-            [Op.gt]: body.startDate
-        };
-        betweenDates["date_to"] = {
-            [Op.lt]: body.endDate
-        }
+        /*let startDate = moment(body.startDate, "MM/DD/YYYY H:mm:ss").format("YYYY/MM/DD H:mm:ss");
+        let endDate = moment(body.endDate, "MM/DD/YYYY H:mm:ss").format("YYYY/MM/DD H:mm:ss");*/
+        console.log(body.startDate);
+        const a = moment(body.startDate, 'YYYY/MM/DD HH:mm:ss').format('YYYY/MM/DD, HH:mm:ss');
+        searchObject["$and"] = [];
+        searchObject["$and"].push({
+            date_from: {
+                $gt: a
+            }
+        });
+        const b = moment(body.endDate, 'YYYY/MM/DD HH:mm:ss').format('YYYY/MM/DD, HH:mm:ss');
+        searchObject["$and"].push({
+            date_to: {
+                $lt: b
+            }
+        });
     }
 
-    let [err, reservations] = await to(Reservations.findAll({
-        where: betweenDates,
-        include: [
-            { model: Employees, where: searchObjectEmployee},
-            { model: Companies, where: searchObjectCompany},
-            Countries]
-    }));
+    console.log(JSON.stringify(searchObject));
+
+    let [err, reservations] = await to(mongoose.models.Reservation.find(searchObject));
     if(err) return ReE(res, err);
 
     return ReS(res, { body: reservations});
@@ -103,17 +116,10 @@ const filterActive = async function(req, res){
 
     const now = moment(new Date()).format('YYYY/MM/DD, H:mm:ss');
 
-    let [err, reservations] = await to(Reservations.findAll({
-        where: {
-            'date_to': {
-                [Op.gt]: now
+    let [err, reservations] = await to(mongoose.models.Reservation.find({
+            date_to: {
+                $gt: now
             }
-        },
-        include: [
-            Employees,
-            Companies,
-            Countries
-        ]
     }));
     if(err) return ReE(res, err);
 
@@ -126,12 +132,10 @@ const batchDelete = async function(req, res){
     console.log(req.body);
 
     const now = moment(new Date()).format('YYYY/MM/DD, H:mm:ss');
-    let [err, response] = await to(Reservations.destroy({
-        where: {
+    let [err, response] = await to(mongoose.models.Reservation.remove({
             'date_from': {
-                [Op.gt]: now
+                $gt: now
             }
-        }
     }));
     if(err) return ReE(res, err);
 
@@ -143,10 +147,8 @@ const deleteReservation = async function(req, res){
     console.log(req.params);
     console.log(req.body);
 
-    let [err, response] = await to(Reservations.destroy({
-        where: {
-            id: req.params.id
-        }
+    let [err, response] = await to(mongoose.models.Reservation.remove({
+            _id: req.params.id
     }));
     if(err) return ReE(res, err);
 
@@ -163,10 +165,10 @@ const exportAsCsv = async function(req, res){
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Pragma', 'no-cache');
 
-    let [err, reservations] = await to(Reservations.findAll({include: [Employees, Companies, Countries]}));
+    let [err, reservations] = await to(mongoose.models.Reservation.find());
     if(err) return ReE(res, err);
 
-    reservations = reservations.map(reservation => reservation.dataValues);
+    reservations = reservations.map(reservation => reservation._doc);
 
     stringify(reservations, { header: true })
         .pipe(res);

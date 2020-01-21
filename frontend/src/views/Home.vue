@@ -102,7 +102,7 @@ export default {
         return;
       }
 
-     let [err, reservation] = await to(ReservationService.insertReservation({ countryId: this.chosenCountry.id, companyId: this.chosenCompany.id, employeeId: this.chosenEmployee.id, startDate: this.$moment(this.fromDateTime).format('YYYY/MM/DD, H:mm:ss'), endDate: this.$moment(this.toDateTime).format('YYYY/MM/DD, H:mm:ss') }));
+     let [err, reservation] = await to(ReservationService.insertReservation({ country: this.chosenCountry, company: this.chosenCompany, employee: this.chosenEmployee, startDate: this.$moment(this.fromDateTime).format('YYYY/MM/DD, H:mm:ss'), endDate: this.$moment(this.toDateTime).format('YYYY/MM/DD, H:mm:ss') }));
       if (err) return console.error(err);
 
       console.log('-----------------------------------------');

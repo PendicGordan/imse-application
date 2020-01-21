@@ -2,10 +2,12 @@ const {Employees, Reservations}                       = require('../models');
 const {ReE, ReS, to }       = require('../services/UtilService');
 const Sequelize = require('sequelize');
 const stringify = require('csv-stringify');
+const mongoose = require('mongoose');
+const Employee = require('../models_mongodb/Employee');
 
 const create = async function(req, res){
     let body = req.body;
-    const [err, employee] = await to(Employees.create({ username: body.username, first_name: body.firstName, last_name: body.lastName }));
+    const [err, employee] = await to(new Employee({ _id: new mongoose.Types.ObjectId(), username: body.username, first_name: body.firstName, last_name: body.lastName }).save());
     if(err) return ReE(res, err);
 
     return ReS(res, { body: employee });
@@ -13,7 +15,7 @@ const create = async function(req, res){
 module.exports.create = create;
 
 const retrieveEmployees = async function(req, res) {
-    const [err, employees] = await to(Employees.findAll());
+    const [err, employees] = await to(mongoose.models.Employee.find());
     if(err) return ReE(res, err);
 
     return ReS(res, { body: employees });
@@ -21,9 +23,9 @@ const retrieveEmployees = async function(req, res) {
 module.exports.retrieveEmployees = retrieveEmployees;
 
 const sortBy = async function(req, res){
-    let [err, employees] = await to(Employees.findAll({ order: [
-            [req.params.sortBy, req.params.direction === 'descending' ? 'DESC' : 'ASC']
-        ]}));
+    let sortObject = {};
+    sortObject[req.params.sortBy] = req.params.direction === 'ascending' ? 1 : -1;
+    let [err, employees] = await to(mongoose.models.Employee.find().sort(sortObject));
     if(err) return ReE(res, err);
 
     console.log(employees);
@@ -33,44 +35,34 @@ const sortBy = async function(req, res){
 module.exports.sortBy = sortBy;
 
 const fetchTop10 = async function(req, res){
-    let [err, countingResult] = await to(Reservations.findAll({
-        attributes:
-            ['EmployeeId', [Sequelize.fn('count', Sequelize.col('EmployeeId')), 'cnt' ]],
-        group: ['EmployeeId'],
-        include: [Employees]
-    }));
+    let [err, result] = await to(mongoose.models.Employee.find());
     if(err) return ReE(res, err);
 
     if(req.params.direction === 'most')
-        countingResult.sort((a, b) => {
-            return b.dataValues.cnt - a.dataValues.cnt;
+        result.sort((a, b) => {
+            return b.reservations.length - a.reservations.length;
         });
     else
-        countingResult.sort((a, b) => {
-            return a.dataValues.cnt - b.dataValues.cnt;
+        result.sort((a, b) => {
+            return a.reservations.length - b.reservations.length;
         });
 
-    if(countingResult.length > 10) {
-        countingResult = countingResult.slice(0, 10);
+    if(result.length > 10) {
+        result = result.slice(0, 10);
     }
-    let employees = countingResult.map(record => record.dataValues.Employee);
 
-    return ReS(res, { body: employees });
+    return ReS(res, { body: result });
 };
 module.exports.fetchTop10 = fetchTop10;
 
 const fetchAverageReservations = async function(req, res){
-    let [err, countingResult] = await to(Reservations.findAll({
-        attributes: ['EmployeeId', [Sequelize.fn('count', Sequelize.col('EmployeeId')), 'cnt' ]],
-        group: ['EmployeeId']
-    }));
+    let [err, countingResult] = await to(mongoose.models.Employee.find());
     if(err) return ReE(res, err);
 
-    console.log(countingResult[0].dataValues.cnt);
-
+    console.log(countingResult);
     let sum = 0;
-    countingResult.forEach(record => {
-        sum += record.dataValues.cnt;
+    countingResult.forEach(eachReservation => {
+        sum += eachReservation.reservations.length;
     });
 
     return ReS(res, { body: sum / countingResult.length });
@@ -78,10 +70,7 @@ const fetchAverageReservations = async function(req, res){
 module.exports.fetchAverageReservations = fetchAverageReservations;
 
 const fetchCount = async function(req, res){
-    const [err, count] = await to(Employees.count({
-        distinct: true,
-        col: 'Employees.id'
-    }));
+    const [err, count] = await to(mongoose.models.Employee.count());
     if(err) return ReE(res, err);
 
     return ReS(res, { body: count });
@@ -94,9 +83,9 @@ const exportAsCsv = async function(req, res){
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Pragma', 'no-cache');
 
-    let [err, employees] = await to(Employees.findAll());
+    let [err, employees] = await to(mongoose.models.Employee.find());
     if(err) return ReE(res, err);
-    employees = employees.map(employee => employee.dataValues);
+    employees = employees.map(employee => employee._doc);
 
     stringify(employees, { header: true })
         .pipe(res);

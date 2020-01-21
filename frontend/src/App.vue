@@ -2,12 +2,15 @@
   <div id="app">
     <Navbar />
     <router-view/>
+    <b-button id="migration-button" type="is-warning" @click="migrate">Migrate</b-button>
   </div>
 </template>
 <script>
   import Navbar from './views/Navbar'
   //import Footer from "./views/Footer";
   import {mapMutations} from 'vuex';
+  import MigrationService from './services/Migration';
+  import to from 'await-to-js';
 
   export default {
     name: 'home',
@@ -18,11 +21,21 @@
         isLoggedIn: false
       };
     },
-    mounted() {
+    async mounted() {
       this.setToken(localStorage["token"]);
     },
     methods: {
-      ...mapMutations(['setToken'])
+      ...mapMutations(['setToken']),
+      async migrate() {
+        console.log('ssss');
+        let [err, response] = await to(MigrationService.migrate());
+        if(err) return this.$swal('Migration failed: ' + err,'', 'error');
+
+        console.log(response);
+        await this.$swal('Migration succeed!','',
+                'info');
+        location.reload();
+      }
     }
   }
 </script>
@@ -50,4 +63,12 @@
   color: #42b983;
 }
 
+  #migration-button {
+      position:fixed;
+      bottom:10%;
+      right:1%;
+      border-radius: 50%;
+      width: 75px;
+      height: 75px;
+  }
 </style>

@@ -77,14 +77,15 @@ module.exports = async () => {
       let companyToInsert = companyTemp[eachReservation.CompanyId];
       let countryToInsert = countryTemp[eachReservation.CountryId];
       let reservationId = new mongoose.Types.ObjectId();
-      await new Reservation({
-         _id: reservationId,
-         date_from: eachReservation.date_from,
-         date_to: eachReservation.date_to,
-         company: companyToInsert,
-         employee: employeeToInsert,
-         country: countryToInsert
-      }).save();
+      if(companyToInsert && countryToInsert && employeeToInsert)
+         await new Reservation({
+            _id: reservationId,
+            date_from: eachReservation.date_from,
+            date_to: eachReservation.date_to,
+            company: companyToInsert,
+            employee: employeeToInsert,
+            country: countryToInsert
+         }).save();
 
       console.log(await mongoose.models.Employee.find({ _id: employeeToInsert._id }));
       await mongoose.models.Employee.update({ _id: employeeToInsert._id },{ $push: { reservations: { $each: [reservationId] } } });

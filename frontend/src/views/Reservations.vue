@@ -173,14 +173,14 @@
 
                 <template slot-scope="props">
                     <b-table-column field="username" label="Username">
-                        {{ props.row.Employee.username }}
+                        {{ props.row.employee.username }}
                     </b-table-column>
                     <b-table-column field="first_name" label="First Name">
-                        {{ props.row.Employee.first_name }}
+                        {{ props.row.employee.first_name }}
                     </b-table-column>
 
                     <b-table-column field="last_name" label="Last Name">
-                        {{ props.row.Employee.last_name }}
+                        {{ props.row.employee.last_name }}
                     </b-table-column>
 
                     <b-table-column field="date" label="Start Date" centered>
@@ -196,7 +196,7 @@
                     </b-table-column>
 
                     <b-table-column field="last_name" label="Cathering Facility" centered>
-                        {{ props.row.Company.name }}
+                        {{ props.row.company.name }}
                     </b-table-column>
                     <b-table-column>
                         <b-button v-if="props.row.date_from > $moment(new Date()).format('YYYY/MM/DD, H:mm:ss')" type="is-danger" rounded @click.prevent="deleteReservation(props.row)">Delete</b-button>
@@ -310,7 +310,7 @@
 
                 if(reservations.data.body === 0) this.$swal('There are no reservations for deletion!','',
                     'info');
-                else this.$swal(reservations.data.body + ' reservation(s) successfully deleted!','',
+                else this.$swal('Active reservation(s) successfully deleted!','',
                     'success');
 
                 let [errRetrieve, response] = await to(ReservationService.retrieveReservations());
@@ -318,12 +318,12 @@
                 this.data = response.data.body;
             },
             async deleteReservation(reservation) {
-                let [err, response] = await to(ReservationService.delete({ id: reservation.id }));
+                let [err, response] = await to(ReservationService.delete({ id: reservation._id }));
                 if (err) return console.error(err);
 
-                this.data = this.data.filter(reservationTraversed => reservationTraversed.id !== reservation.id);
+                this.data = this.data.filter(reservationTraversed => reservationTraversed._id !== reservation._id);
 
-                this.$swal(response.data.body + ' reservation successfully deleted!','',
+                this.$swal('Reservation successfully deleted!','',
                     'success');
                 console.log('-----------------------------------------');
                 console.log('Delete reservation - response:');

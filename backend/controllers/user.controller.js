@@ -1,5 +1,5 @@
 const {Users}                       = require('../models');
-const {ReE, ReS, to, getAge }       = require('../services/UtilService');
+const {ReE, ReS, to, getAge, TE }       = require('../services/UtilService');
 const bcrypt                        = require('bcryptjs');
 const validator                     = require('validator');
 const randomstring                  = require('randomstring');
@@ -7,6 +7,10 @@ const nodemailer                    = require('nodemailer');
 const moment                        = require('moment');
 const sendgridTransport             = require('nodemailer-sendgrid-transport');
 const PASSWORD_PATTERN = '^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$';
+let User = require('../models_mongodb/User');
+const bcrypt_p       = require('bcrypt-promise');
+const CONFIG            = require('../config/config');
+const jwt           	= require('jsonwebtoken');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
@@ -92,18 +96,37 @@ const login = async function(req, res){
     }
 
     let err, user;
-    [err, user] = await to(Users.findOne({where: {email: email}}));
+    [err, user] = await to(User.find({ email: email }));
     if(err) return ReE(res, 'Find Account error.');
-    else if(!user) return ReE(res, 'Account not registered.');
+    else if(user.length === 0) return ReE(res, 'Account not registered.');
 
-    [err, user] = await to(user.comparePassword(password));
+    console.log(user);
+    user = user[0];
+    [err, user] = await to(comparePassword(user, password, user.password));
     if(err) return ReE(res, err.message);
 
     return ReS(res, {
-        token: user.getJWT(user.dataValues.id, user.dataValues.email)
+        token: getJWT(user._id, user.email)
     });
 };
 module.exports.login = login;
+
+async function comparePassword(user, pw, userPassword) {
+    let err, pass;
+
+    console.log(pw, userPassword);
+    [err, pass] = await to(bcrypt_p.compare(pw, userPassword));
+    if(err) TE(err);
+
+    if(!pass) TE('Invalid password!');
+
+    return user;
+}
+
+getJWT = (id, email) => {
+    let expiration_time = parseInt(CONFIG.jwt_expiration);
+    return jwt.sign({_id: id, email}, CONFIG.jwt_encryption, {expiresIn: expiration_time});
+};
 
 const remove = async function(req, res){
     let user, err;
@@ -169,14 +192,15 @@ const changePassword = async function(req, res){
     let password = req.body.password;
     const hashedPassword = await bcrypt.hash(password, 12);
     let err, user;
-    [err, ] = await to(Users.update({ password: hashedPassword }, {where: { id: req.user.id }}));
+    [err, ] = await to(User.update({ _id: req.user._id}, { $set: { password: hashedPassword }}));
     if(err) return ReE(res, err);
     return ReS(res, {message :'Password successfully updated'});
 };
 module.exports.changePassword = changePassword;
 
 const retrieveUser = async function(req, res){
-    return ReS(res, {body: { id: req.user.id, email: req.user.email }});
+    console.log(req.user);
+    return ReS(res, {body: { _id: req.user._id, email: req.user.email }});
 };
 
 module.exports.retrieveUser = retrieveUser;
