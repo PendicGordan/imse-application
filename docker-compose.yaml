@@ -42,10 +42,13 @@ services:
     networks:
       applicationnet:
   mongo:
-      container_name: mongo
-      image: mongo
-      ports:
+    container_name: mongo
+    image: mongo
+    ports:
       - '27017:27017'
+    networks:
+      applicationnet:
+    
 
 networks:
   applicationnet:
