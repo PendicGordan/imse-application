@@ -36,7 +36,7 @@ if(CONFIG.app === 'dev'){
     });
 }
 
-mongoose.connect('mongodb://mongo:27017/reservation_management_system', {
+mongoose.connect('mongodb://localhost:27017/reservation_management_system', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then((db) => {
